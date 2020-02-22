@@ -5,6 +5,7 @@ go 1.13
 require (
 	github.com/araddon/dateparse v0.0.0-20190622164848-0fb0a474d195
 	github.com/golang/protobuf v1.3.3
+	github.com/hashicorp/hcl v1.0.0
 	github.com/hpcloud/tail v1.0.0
 	github.com/juju/errors v0.0.0-20190930114154-d42613fe1ab9
 	github.com/spf13/cobra v0.0.5 // indirect

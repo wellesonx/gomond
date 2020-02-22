@@ -7,6 +7,6 @@ const (
 	TextParserType string = "text"
 )
 
-type LogParser interface {
+type Parser interface {
 	Read([]byte) (Log, error)
 }
