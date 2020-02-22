@@ -30,7 +30,8 @@ func (s *JSONParserSuite) SetupTest() {
 		FileField:      "file",
 	}
 
-	s.jp = NewJSONParser(FILE, option)
+	parser, _ := NewJSONParser(FILE, option)
+	s.jp = parser
 }
 
 func (s JSONParserSuite) TestRead() {
