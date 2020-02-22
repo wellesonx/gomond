@@ -1,0 +1,30 @@
+{
+  "notification": {
+    "enable": "true",
+    "token": "awdadwadwawd"
+  },
+  "log": {
+    "path": {},
+    "level": {}
+  },
+  "grpc": {
+    "port": "5413"
+  },
+  "apps": {
+    "proxy_xml": {
+      "type": "file",
+      "message_height": 5,
+      "parser": "json",
+      "provider": {
+        "path": "/var/123/"
+      },
+      "option": {
+        "message": "message",
+        "timestamp": "timestamp",
+        "level": "level",
+        "file!": "domain",
+        "line": "domain"
+      }
+    }
+  }
+}
