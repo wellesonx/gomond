@@ -32,6 +32,42 @@ func (s *TextParserSuite) SetupTest() {
 	s.message = message
 }
 
+func (s TextParserSuite) TestRead() {
+	parser, err := NewTextParser(FILE, s.option)
+
+	s.Nil(err)
+
+	logObj, err := parser.Read([]byte(s.message))
+
+	s.Nil(err)
+
+	s.NotEmpty(logObj)
+
+	wrongOption := s.option
+
+	wrongOption.LevelField = ""
+
+	parser, err = NewTextParser(FILE, wrongOption)
+
+	s.Error(err)
+
+	wrongOption = s.option
+
+	wrongOption.MessageField = ""
+
+	parser, err = NewTextParser(FILE, wrongOption)
+
+	s.Error(err)
+
+	wrongOption = s.option
+
+	wrongOption.TimestampField = ""
+
+	parser, err = NewTextParser(FILE, wrongOption)
+
+	s.Nil(err)
+}
+
 func TestTextParser(t *testing.T) {
 
 	s := new(TextParserSuite)
