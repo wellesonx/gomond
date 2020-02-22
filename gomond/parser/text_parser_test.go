@@ -47,7 +47,7 @@ func (s TextParserSuite) TestRead() {
 
 	wrongOption.LevelField = ""
 
-	parser, err = NewTextParser(FILE, wrongOption)
+	_, err = NewTextParser(FILE, wrongOption)
 
 	s.Error(err)
 
@@ -55,7 +55,7 @@ func (s TextParserSuite) TestRead() {
 
 	wrongOption.MessageField = ""
 
-	parser, err = NewTextParser(FILE, wrongOption)
+	_, err = NewTextParser(FILE, wrongOption)
 
 	s.Error(err)
 
@@ -63,7 +63,7 @@ func (s TextParserSuite) TestRead() {
 
 	wrongOption.TimestampField = ""
 
-	parser, err = NewTextParser(FILE, wrongOption)
+	_, err = NewTextParser(FILE, wrongOption)
 
 	s.Nil(err)
 }
