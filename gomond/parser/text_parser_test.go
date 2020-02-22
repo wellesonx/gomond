@@ -37,7 +37,7 @@ func (s TextParserSuite) TestRead() {
 
 	s.Nil(err)
 
-	logObj, err := parser.Read([]byte(s.message))
+	logObj, err := parser.Parse([]byte(s.message))
 
 	s.Nil(err)
 

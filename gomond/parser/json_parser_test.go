@@ -35,7 +35,7 @@ func (s *JSONParserSuite) SetupTest() {
 }
 
 func (s JSONParserSuite) TestRead() {
-	logObj, err := s.jp.Read(s.message)
+	logObj, err := s.jp.Parse(s.message)
 
 	s.Assert().Nil(err)
 
@@ -48,7 +48,7 @@ func (s JSONParserSuite) TestRead() {
 				  "timestamp": "2020-02-12T02:14:15"
 				}`
 
-	logObj, err = s.jp.Read([]byte(message))
+	logObj, err = s.jp.Parse([]byte(message))
 
 	s.Assert().Nil(err)
 
@@ -61,7 +61,7 @@ func (s JSONParserSuite) TestRead() {
 				  "timestamp": "2020-02-12T02:14:15"
 				}`
 
-	logObj, err = s.jp.Read([]byte(message))
+	logObj, err = s.jp.Parse([]byte(message))
 
 	s.Assert().Nil(err)
 
@@ -73,7 +73,7 @@ func (s JSONParserSuite) TestRead() {
 				  "timestamp": "2020-02-12T02:14:15"
 				}`
 
-	logObj, err = s.jp.Read([]byte(message))
+	logObj, err = s.jp.Parse([]byte(message))
 
 	s.Assert().Error(err)
 
@@ -84,7 +84,7 @@ func (s JSONParserSuite) TestRead() {
 				  "timestamp": "2020-02-12T02:14:15"
 				}`
 
-	logObj, err = s.jp.Read([]byte(message))
+	logObj, err = s.jp.Parse([]byte(message))
 
 	s.Assert().Error(err)
 
@@ -96,7 +96,7 @@ func (s JSONParserSuite) TestRead() {
 				  "line": "1443"
 				}`
 
-	logObj, err = s.jp.Read([]byte(message))
+	logObj, err = s.jp.Parse([]byte(message))
 
 	s.Assert().Nil(err, err)
 
@@ -107,7 +107,7 @@ func (s JSONParserSuite) TestRead() {
 				  "timestamp": "20200212T021415"
 				}`
 
-	logObj, err = s.jp.Read([]byte(message))
+	logObj, err = s.jp.Parse([]byte(message))
 
 	s.Assert().Error(err, err)
 
@@ -118,7 +118,7 @@ func (s JSONParserSuite) TestRead() {
 				  "timestamp": "20200212T021415",
 				}`
 
-	logObj, err = s.jp.Read([]byte(message))
+	logObj, err = s.jp.Parse([]byte(message))
 
 	s.Assert().Error(err, err)
 

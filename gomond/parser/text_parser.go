@@ -104,7 +104,7 @@ func NewTextParser(kind Type, config TextOption) (*TextParser, error) {
 	return &TextParser{config: config, kind: kind, extractor: extractor}, nil
 }
 
-func (t TextParser) Read(body []byte) (Log, error) {
+func (t TextParser) Parse(body []byte) (Log, error) {
 	logObj := NewLog()
 	record := string(body)
 

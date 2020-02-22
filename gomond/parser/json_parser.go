@@ -25,7 +25,7 @@ func NewJSONParser(kind Type, config JSONOption) (*JSONParser, error) {
 	return &JSONParser{config: config, kind: kind}, nil
 }
 
-func (j JSONParser) Read(body []byte) (Log, error) {
+func (j JSONParser) Parse(body []byte) (Log, error) {
 	logObject := NewLog()
 
 	logObject.Type = j.kind

@@ -8,5 +8,5 @@ const (
 )
 
 type Parser interface {
-	Read([]byte) (Log, error)
+	Parse([]byte) (Log, error)
 }
