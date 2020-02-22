@@ -21,8 +21,8 @@ type JSONParser struct {
 	kind   Type
 }
 
-func NewJSONParser(kind Type, config JSONOption) *JSONParser {
-	return &JSONParser{config: config, kind: kind}
+func NewJSONParser(kind Type, config JSONOption) (*JSONParser, error) {
+	return &JSONParser{config: config, kind: kind}, nil
 }
 
 func (j JSONParser) Read(body []byte) (Log, error) {
