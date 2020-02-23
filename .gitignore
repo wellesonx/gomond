@@ -95,9 +95,3 @@ fabric.properties
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
-
-text2.txt
-text.txt
-
-main.go
-config.
