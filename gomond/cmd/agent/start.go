@@ -67,7 +67,7 @@ var start = &cobra.Command{
 
 		logger.SetLevel(logConfig.Level)
 		logger.SetFormatter(&logrus.JSONFormatter{
-			PrettyPrint: true,
+			PrettyPrint: false,
 		})
 
 		output, err := os.OpenFile(logConfig.Path, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0744)

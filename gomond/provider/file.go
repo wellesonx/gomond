@@ -1,7 +1,6 @@
 package provider
 
 import (
-	"fmt"
 	"github.com/hpcloud/tail"
 	"github.com/juju/errors"
 	"io"
@@ -36,9 +35,10 @@ func (f *FileProvider) Follow(out chan []byte) error {
 			continue
 		}
 
-		fmt.Println(line.Text)
 		batch--
 		if batch == 0 {
+			record = append(record, []byte(line.Text)...)
+			record = append(record, []byte("\n")...)
 			out <- record
 			batch = f.config.Height
 			record = make([]byte, 0)
