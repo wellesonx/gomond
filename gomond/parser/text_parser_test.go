@@ -15,7 +15,7 @@ func (s *TextParserSuite) SetupTest() {
 	s.option = TextOption{
 		LevelField:     "\\[(?P<level>[\\w+]+)+\\]",
 		MessageField:   "Desc:[ ]+(?P<message>[\\w+ ,\\d+.: ->]+)",
-		AppName:        "app",
+		AppName:        "watchers",
 		TimestampField: "\\[[a-zA-Z]+\\](?P<time>[\\d+]{4}\\/[\\d+]{2}\\/[\\d+]{2} [\\d+]{2}:[\\d+]{2}:[\\d+]{2}.[\\d+]{3,7})",
 		FileField:      "SrcFile:[ ]+(?P<file>[a-zA-Z.]+)",
 		LineField:      "LineNum:[ ]+(?P<line>[0-9]+)",

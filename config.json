@@ -4,27 +4,30 @@
     "token": "awdadwadwawd"
   },
   "log": {
-    "path": {},
-    "level": {}
+    "path": "app.log",
+    "level": "info"
   },
   "grpc": {
     "port": "5413"
   },
-  "apps": {
-    "proxy_xml": {
-      "type": "file",
-      "message_height": 5,
-      "parser": "json",
-      "provider": {
-        "path": "/var/123/"
-      },
-      "option": {
-        "message": "message",
-        "timestamp": "timestamp",
-        "level": "level",
-        "file!": "domain",
-        "line": "domain"
+  "watchers": {
+    "proxy_xml": [
+      {
+        "name": "proxy-xml-domain",
+        "type": "file",
+        "parser": "json",
+        "provider": {
+          "height": 6,
+          "file_name": "app2.log"
+        },
+        "option": {
+          "message": "msg",
+          "timestamp": "time",
+          "level": "level",
+          "file": "file",
+          "line": "func"
+        }
       }
-    }
+    ]
   }
 }

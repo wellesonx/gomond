@@ -31,7 +31,8 @@ var (
 type TextOption struct {
 	LevelField     string `json:"level_field"`
 	MessageField   string `json:"message_field"`
-	AppName        string `json:"app_name"`
+	AppName        string `json:"app_name,omitempty"`
+	LogName        string `json:"log_name,omitempty"`
 	TimestampField string `json:"timestamp_field"`
 	FileField      string `json:"file_field,omitempty"`
 	LineField      string `json:"line_field,omitempty"`

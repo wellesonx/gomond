@@ -1,25 +1,26 @@
 package provider
 
 import (
+	"fmt"
 	"github.com/hpcloud/tail"
 	"github.com/juju/errors"
 	"io"
 	"os"
 )
 
-type FileConfiguration struct {
+type FileOption struct {
 	Height   int    `json:"height"`
 	FileName string `json:"file_name"`
 }
 
 type FileProvider struct {
-	config   FileConfiguration
+	config   FileOption
 	lastLine int
 	tailFile *tail.Tail
 }
 
-func NewFileProvider(config FileConfiguration) *FileProvider {
-	return &FileProvider{config: config, lastLine: 99969910}
+func NewFileProvider(config FileOption) *FileProvider {
+	return &FileProvider{config: config}
 }
 
 func (f *FileProvider) Follow(out chan []byte) error {
@@ -30,16 +31,21 @@ func (f *FileProvider) Follow(out chan []byte) error {
 	record := make([]byte, 0)
 
 	for line := range f.tailFile.Lines {
-		record = append(record, []byte(line.Text)...)
 
+		if line.Text == "" {
+			continue
+		}
+
+		fmt.Println(line.Text)
+		batch--
 		if batch == 0 {
 			out <- record
 			batch = f.config.Height
 			record = make([]byte, 0)
 		} else {
+			record = append(record, []byte(line.Text)...)
 			record = append(record, []byte("\n")...)
 		}
-		batch--
 
 	}
 
@@ -51,7 +57,6 @@ func (f *FileProvider) Start() error {
 
 	if err != nil {
 		return errors.Annotate(err, "FileProvider file.Open")
-
 	}
 
 	seek, _ := open.Seek(0, io.SeekEnd)

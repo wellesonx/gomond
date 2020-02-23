@@ -25,7 +25,7 @@ func (s *JSONParserSuite) SetupTest() {
 	option := JSONOption{
 		LevelField:     "level",
 		MessageField:   "message",
-		AppName:        "app",
+		AppName:        "watchers",
 		TimestampField: "timestamp",
 		FileField:      "file",
 	}

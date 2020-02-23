@@ -2,6 +2,7 @@ package parser
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/araddon/dateparse"
 	"github.com/gelleson/gomond/gomond/helper"
 	"github.com/juju/errors"
@@ -9,11 +10,12 @@ import (
 )
 
 type JSONOption struct {
-	LevelField     string `json:"level_field"`
-	MessageField   string `json:"message_field"`
-	AppName        string `json:"app_name"`
-	TimestampField string `json:"timestamp_field"`
-	FileField      string `json:"file_field,omitempty"`
+	LevelField     string `json:"level"`
+	MessageField   string `json:"message"`
+	AppName        string `json:"app_name,omitempty"`
+	LogName        string `json:"log_name,omitempty"`
+	TimestampField string `json:"timestamp"`
+	FileField      string `json:"file,omitempty"`
 }
 
 type JSONParser struct {
@@ -31,6 +33,10 @@ func (j JSONParser) Parse(body []byte) (Log, error) {
 	logObject.Type = j.kind
 
 	logObject.App = j.config.AppName
+
+	logObject.LogName = j.config.LogName
+
+	fmt.Println(string(body))
 
 	logObject.Payload = body
 

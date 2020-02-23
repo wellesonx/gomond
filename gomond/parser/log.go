@@ -59,7 +59,8 @@ const (
 )
 
 type Log struct {
-	App       string    `json:"app"`
+	App       string    `json:"watchers"`
+	LogName   string    `json:"log_name"`
 	Timestamp time.Time `json:"timestamp"`
 	Level     Level     `json:"level"`
 	Message   string    `json:"message"`

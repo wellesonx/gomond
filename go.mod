@@ -8,7 +8,9 @@ require (
 	github.com/hashicorp/hcl v1.0.0
 	github.com/hpcloud/tail v1.0.0
 	github.com/juju/errors v0.0.0-20190930114154-d42613fe1ab9
-	github.com/spf13/cobra v0.0.5 // indirect
+	github.com/mitchellh/hashstructure v1.0.0
+	github.com/sirupsen/logrus v1.4.2
+	github.com/spf13/cobra v0.0.5
 	github.com/stretchr/testify v1.5.0
 	golang.org/x/net v0.0.0-20200202094626-16171245cfb2 // indirect
 	golang.org/x/sys v0.0.0-20200219091948-cb0a6d8edb6c // indirect

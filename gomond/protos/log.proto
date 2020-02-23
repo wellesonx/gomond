@@ -4,7 +4,7 @@ syntax = "proto3";
 package pb;
 
 service LogAPI {
-    rpc Live (AppLiveRequest) returns (stream Log) {
+    rpc Live (Empty) returns (stream Log) {
     }
 
     rpc Latest (AppLatestRequest) returns (AppResponse) {
@@ -33,12 +33,13 @@ message Log {
     string message = 5;
     string file = 6;
     int32 line = 7;
-    Type  type = 8;
+    Type type = 8;
+    string hostname = 9;
+    string label = 10;
 
 };
 
-message AppLiveRequest {
-    string app = 1;
+message Empty {
 }
 
 message AppRangeRequest {
