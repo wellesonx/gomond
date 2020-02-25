@@ -1,18 +1,19 @@
 package cmd
 
 import (
-	"github.com/gelleson/gomond/gomond/cmd/agent"
+	"github.com/gelleson/gomond/gomond/cmd/agentcmd"
 	"github.com/gelleson/gomond/gomond/cmd/servercmd"
 	"github.com/spf13/cobra"
 )
 
 var root = &cobra.Command{
-	Use: "gomond",
+	Use:   "gomond",
+	Short: "monitoring system",
 }
 
 func init() {
 
-	root.AddCommand(agent.Agent)
+	root.AddCommand(agentcmd.Agent)
 	root.AddCommand(servercmd.CMD)
 }
 

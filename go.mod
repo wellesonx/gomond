@@ -10,6 +10,7 @@ require (
 	github.com/hpcloud/tail v1.0.0
 	github.com/jinzhu/gorm v1.9.12
 	github.com/juju/errors v0.0.0-20190930114154-d42613fe1ab9
+	github.com/karalabe/xgo v0.0.0-20191115072854-c5ccff8648a7 // indirect
 	github.com/mitchellh/hashstructure v1.0.0
 	github.com/sirupsen/logrus v1.4.2
 	github.com/spf13/cobra v0.0.5

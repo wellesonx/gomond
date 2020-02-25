@@ -1,6 +1,8 @@
 package models
 
-import "github.com/jinzhu/gorm"
+import (
+	"github.com/jinzhu/gorm"
+)
 
 type Event int
 
@@ -12,8 +14,8 @@ const (
 
 type WatcherEvent struct {
 	gorm.Model
-	Watcher   Watcher
-	WatcherID uint
-	Event     Event
-	Message   string
+	Watcher   Watcher `json:"watcher"`
+	WatcherID uint    `json:"-"`
+	Event     Event   `json:"event"`
+	Message   string  `json:"message"`
 }

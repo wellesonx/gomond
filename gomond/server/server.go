@@ -260,6 +260,26 @@ func (s *Server) prepareServer() {
 
 			go watcher.start(s.logger)
 		})
+		m.Get("/events", func(ctx *macaron.Context, db *gorm.DB) (int, []byte) {
+			limit := ctx.QueryInt("limit")
+			if limit == 0 {
+				limit = 10
+			}
+
+			query := db.Order("created_at desc").Limit(limit)
+
+			events := make([]models.WatcherEvent, 0)
+
+			query.Set("gorm:auto_preload", true).Find(&events)
+
+			eventsPayload, err := json.Marshal(events)
+
+			if err != nil {
+				return http.StatusBadRequest, []byte(err.Error())
+			}
+
+			return http.StatusOK, eventsPayload
+		})
 	})
 }
 

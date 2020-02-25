@@ -1,4 +1,4 @@
-package agent
+package agentcmd
 
 import (
 	"encoding/json"
@@ -24,7 +24,7 @@ type Watcher struct {
 
 var start = &cobra.Command{
 	Use:   "start",
-	Short: "start agent server",
+	Short: "start agentcmd server",
 	Run: func(cmd *cobra.Command, args []string) {
 		config, err := cmd.Flags().GetString("config")
 
