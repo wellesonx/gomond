@@ -95,3 +95,9 @@ fabric.properties
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
+aoo.log
+app.db
+app.log
+server.json
+config.json
+test.log

@@ -1,7 +1,6 @@
 package collector
 
 import (
-	"fmt"
 	"github.com/gelleson/gomond/gomond/parser"
 	"sync"
 	"sync/atomic"
@@ -77,14 +76,10 @@ func (m *MemoryLogCollector) Get() []parser.Log {
 
 	logs := make([]parser.Log, 0)
 
-	count := m.viewed
-
 	for i := m.viewed; i < int64(len(m.logs)); i++ {
-		fmt.Println(i)
 		logObj := m.logs[i]
 		logs = append(logs, logObj.log)
-		count++
-		atomic.AddInt64(&m.viewed, count)
+		atomic.AddInt64(&m.viewed, 1)
 	}
 
 	return logs
