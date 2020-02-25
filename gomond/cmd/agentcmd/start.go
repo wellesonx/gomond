@@ -24,7 +24,11 @@ type Watcher struct {
 
 var start = &cobra.Command{
 	Use:   "start",
-	Short: "start agentcmd server",
+	Short: "Start agent server",
+	PreRun: func(cmd *cobra.Command, args []string) {
+		cmd.Flags().Duration("ttl", time.Hour, "--ttl 12h")
+
+	},
 	Run: func(cmd *cobra.Command, args []string) {
 		config, err := cmd.Flags().GetString("config")
 
