@@ -81,8 +81,14 @@ var start = &cobra.Command{
 
 		logger.SetOutput(output)
 
+		duration, err := cmd.Flags().GetDuration("ttl")
+
+		if err != nil {
+			logger.Fatal(err)
+		}
+
 		collection := collector.NewMemoryLogCollector(collector.MemoryOption{
-			TTL: 24 * time.Hour,
+			TTL: duration,
 		})
 
 		logger.Info("inited")
