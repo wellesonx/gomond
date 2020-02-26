@@ -101,3 +101,5 @@ app.log
 server.json
 config.json
 test.log
+
+**/node_modules/
