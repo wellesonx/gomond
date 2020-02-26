@@ -101,5 +101,8 @@ app.log
 server.json
 config.json
 test.log
-
+agent.json
+app.log
+*.http
+gomond-linux-amd64/
 **/node_modules/
